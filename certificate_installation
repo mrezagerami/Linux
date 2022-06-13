@@ -1,0 +1,15 @@
+Install Certificateon Linux
+
+For everything to work and not only your browser, you need to add that CA certificate to the system's trusted CA repository.
+
+In ubuntu:
+
+Go to /usr/local/share/ca-certificates/
+
+Create a new folder, i.e. "sudo mkdir school"
+
+Copy the .crt file into the school folder
+
+Make sure the permissions are OK (755 for the folder, 644 for the file)
+
+Run "sudo update-ca-certificates"
