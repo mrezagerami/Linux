@@ -1,0 +1,23 @@
+Update: 2023-11-17
+Here you can find Syslog-ng installation and configuration:
+-----------------------
+#How To Install syslog-ng on Ubuntu 22.04
+sudo apt-get update
+sudo apt-get -y install syslog-ng
+systemctl status syslog-ng.service
+cd /etc/syslog-ng/
+#change these lines and uncomment them:
+  source s_network { udp(ip(192.168.2.30) port(514)); };
+  destination d_$HOST { file(“/var/log/remote/$HOST.log”); };
+  log { source(s_network); destination(d_$HOST); };
+
+sudo systemctl restart syslog-ng
+sudo systemctl status syslog-ng
+
+#Check the logs for syslog-ng service
+journalctl -u syslog-ng -f
+
+#Confirm that you received the logs from the remote hosts
+tail -f /var/log/remote/[HostIP].log
+
+
