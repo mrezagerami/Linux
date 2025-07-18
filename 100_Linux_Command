@@ -1,0 +1,353 @@
+What Are Linux Commands?
+Linux commands allow you to control your system from the command line interface (CLI) instead of using your mouse or trackpad. They are text instructions entered into the terminal to tell your system exactly what to do.
+Commands you enter on the Linux terminal are case-sensitive and follow a syntax like “command -options arguments.” You can combine them for complex tasks using pipelines and redirection.
+Some key things to know about Linux commands:
+They are case-sensitive; for example, “ls” and “LS” mean different things.
+They follow a specific syntax like “command -options arguments.”
+They can be combined for complex operations using pipelines and redirection.
+They give you fine-grained control over your system, which is hard to achieve with graphical interfaces.
+They allow you to automate tasks through shell scripts and batch processing.
+They can be used to access system resources like the file system, network, memory, and CPU.
+They form the basis of interaction with Linux servers and operating systems.
+
+Top 100 Most Useful Linux Commands:
+
+1. ls: Lists the contents of a directory.
+ls -l (Lists files and directories in long format, showing permissions, owner, size, date, etc.)
+
+2. cd: Changes the current directory.
+cd /home/user/documents (Changes to the 'documents' directory inside 'user's home directory.)
+
+3. pwd: Prints the current working directory.
+pwd (Outputs: /home/user/documents)
+
+4. cp: Copies files and directories.
+cp file1.txt file2.txt (Copies file1.txt to file2.txt in the same directory.)
+cp -r mydir /tmp/ (Recursively copies 'mydir' and its contents to /tmp/.)
+
+5. mv: Moves or renames files and directories.
+mv oldname.txt newname.txt (Renames oldname.txt to newname.txt.)
+mv file.txt /tmp/ (Moves file.txt to the /tmp/ directory.)
+
+6. rm: Removes (deletes) files or directories.
+rm myfile.txt (Deletes myfile.txt.)
+rm -r mydirectory/ (Recursively deletes mydirectory and its contents.)
+rm -rf mydirectory/ (Forcefully and recursively deletes mydirectory without prompting.)
+
+7. mkdir: Creates new directories.
+mkdir mynewfolder (Creates a directory named mynewfolder.)
+mkdir -p /tmp/parent/child (Creates parent and child directories if they don't exist.)
+
+8. rmdir: Removes empty directories.
+rmdir myemptyfolder (Removes myemptyfolder if it's empty.)
+
+9. touch: Creates empty files or updates the timestamp of existing files.
+touch newfile.txt (Creates an empty file named newfile.txt.)
+
+10. cat: Concatenates and displays file content.
+cat file.txt (Displays the content of file.txt on the terminal.)
+cat file1.txt file2.txt > combined.txt (Concatenates file1.txt and file2.txt into combined.txt.)
+
+11. less: Views file content page by page.
+less largefile.log (Allows scrolling through largefile.log without loading the entire file into memory.)
+
+12. more: Views file content page by page (older than less).
+more largefile.log (Similar to less but with fewer features.)
+
+13. head: Displays the beginning of a file.
+head -n 5 file.txt (Displays the first 5 lines of file.txt.)
+
+14. tail: Displays the end of a file.
+tail -n 10 file.txt (Displays the last 10 lines of file.txt.)
+tail -f access.log (Monitors access.log in real-time as new lines are added.)
+
+15. grep: Searches for patterns in files.
+grep "error" /var/log/syslog (Searches for the word "error" in /var/log/syslog.)
+grep -r "keyword" . (Recursively searches for "keyword" in the current directory and subdirectories.)
+
+16. find: Searches for files and directories.
+find . -name "*.log" (Finds all files ending with .log in the current directory and its subdirectories.)
+find /home -type d -name "mydata" (Finds directories named "mydata" under /home.)
+
+17. locate: Finds files using a pre-built database (faster than find but might not be up-to-date).
+locate myfile.txt (Searches for myfile.txt in the database.)
+
+18. history: Displays previously executed commands.
+history (Lists all commands executed in the current session.)
+!123 (Executes the command number 123 from history.)
+
+19. man: Displays the manual page for a command.
+man ls (Shows the manual page for the ls command.)
+
+20. whatis: Displays a one-line description of a command.
+whatis ls (Outputs: ls (1) - list directory contents)
+
+21. echo: Displays a line of text.
+echo "Hello, World!" (Prints "Hello, World!" to the terminal.)
+
+22. clear: Clears the terminal screen.
+clear (Clears all previous commands and output from the screen.)
+
+23. date: Displays or sets the system date and time.
+date (Outputs the current date and time.)
+date "+%Y-%m-%d %H:%M:%S" (Formats the date output.)
+
+24. cal: Displays a calendar.
+cal (Displays the current month's calendar.)
+cal 2025 (Displays the calendar for the year 2025.)
+
+25. df: Reports file system disk space usage.
+df -h (Displays disk space usage in human-readable format.)
+
+26. du: Estimates file space usage.
+du -sh /home/user/documents (Shows the total size of the 'documents' directory in human-readable format.)
+
+27. free: Displays amount of free and used memory in the system.
+free -h (Shows memory usage in human-readable format.)
+
+28. top: Displays processes and system activity dynamically.
+top (Shows a real-time view of running processes, CPU usage, memory, etc.)
+
+29. htop: An interactive process viewer (often preferred over top).
+htop (Provides a more user-friendly interface for process management.)
+
+30. ps: Reports a snapshot of the current processes.
+ps aux (Shows all running processes for all users.)
+
+31. kill: Sends signals to processes.
+kill 12345 (Sends the default TERM signal to process ID 12345.)
+kill -9 12345 (Forcefully kills process ID 12345.)
+
+32. pgrep: Looks up processes based on name or other attributes.
+pgrep firefox (Finds the process ID of Firefox.)
+
+33. pkill: Kills processes based on name or other attributes.
+pkill firefox (Kills all processes named Firefox.)
+
+34. service: Runs a System V init script. (Less common in modern Linux using systemd)
+sudo service apache2 start (Starts the Apache web server service.)
+
+35. systemctl: Controls the systemd system and service manager. (Modern Linux)
+sudo systemctl start apache2 (Starts the Apache web server service.)
+sudo systemctl enable apache2 (Enables Apache to start on boot.)
+sudo systemctl status apache2 (Checks the status of the Apache service.)
+
+36. apt-get (or apt): Package manager for Debian-based systems (Ubuntu, Mint).
+sudo apt update (Updates the list of available packages.)
+sudo apt install nano (Installs the nano text editor.)
+sudo apt upgrade (Upgrades all installed packages.)
+
+37. yum (or dnf): Package manager for Red Hat-based systems (CentOS, Fedora).
+sudo yum update (Updates the list of available packages.)
+sudo yum install httpd (Installs the Apache HTTP Server.)
+
+38. pacman: Package manager for Arch Linux.
+sudo pacman -Syu (Synchronizes package databases and upgrades installed packages.)
+
+39. tar: Archives files.
+tar -cvf archive.tar /home/user/documents (Creates an uncompressed archive of documents.)
+tar -xvf archive.tar (Extracts files from archive.tar.)
+tar -czvf archive.tar.gz /home/user/documents (Creates a gzipped archive.)
+tar -xzvf archive.tar.gz (Extracts files from archive.tar.gz.)
+
+40. gzip: Compresses files.
+gzip myfile.txt (Compresses myfile.txt to myfile.txt.gz.)
+
+41. gunzip: Decompresses gzip files.
+gunzip myfile.txt.gz (Decompresses myfile.txt.gz to myfile.txt.)
+
+42. zip: Archives and compresses files.
+zip -r myarchive.zip myfolder/ (Compresses myfolder into myarchive.zip.)
+
+43. unzip: Extracts files from a zip archive.
+unzip myarchive.zip (Extracts files from myarchive.zip.)
+
+44. ssh: Securely connects to a remote server.
+ssh user@hostname (Connects to hostname as user.)
+ssh -p 2222 user@hostname (Connects using port 2222.)
+
+45. scp: Securely copies files between hosts.
+scp myfile.txt user@remotehost:/tmp/ (Copies myfile.txt to /tmp/ on remotehost.)
+scp user@remotehost:/tmp/remote.txt . (Copies remote.txt from remotehost to the current directory.)
+
+46. sftp: Securely transfers files using an interactive interface.
+sftp user@hostname (Opens an SFTP session to hostname.)
+
+47. wget: Downloads files from the web.
+wget https://example.com/file.zip (Downloads file.zip from the specified URL.)
+wget -r -l1 https://example.com/images/ (Recursively downloads images from a URL, depth 1.)
+
+48. curl: Transfers data from or to a server.
+curl https://api.example.com/data (Fetches data from a REST API endpoint.)
+curl -O https://example.com/file.txt (Downloads file.txt to the current directory.)
+
+49. ping: Checks network connectivity to a host.
+ping google.com (Sends ICMP echo requests to https://www.google.com/url?sa=E&source=gmail&q=google.com to check connectivity and latency.)
+
+50. ip (or ifconfig - deprecated): Shows/manipulates routing, devices, policy routing and tunnels.
+ip a (Shows all network interfaces and their IP addresses.)
+ip route show (Shows the routing table.)
+
+51. netstat (or ss): Displays network connections, routing tables, interface statistics, etc.
+netstat -tuln (Shows all listening TCP and UDP ports.)
+ss -tuln (Modern replacement for netstat.)
+
+52. hostname: Displays or sets the system's hostname.
+hostname (Outputs the current hostname.)
+
+53. who: Displays who is logged in.
+who (Shows currently logged-in users.)
+
+54. w: Displays who is logged in and what they are doing.
+w (More detailed than who, showing processes and idle times.)
+
+55. id: Prints real and effective user and group IDs.
+id (Shows your user ID, primary group ID, and all groups you belong to.)
+
+56. su: Switches user.
+su - username (Switches to username and loads their environment.)
+
+57. sudo: Executes a command as another user (by default, as root).
+sudo apt update (Executes apt update with root privileges.)
+
+58. passwd: Changes user password.
+passwd (Allows the current user to change their password.)
+sudo passwd username (Allows root to change username's password.)
+
+59. chown: Changes file owner and group.
+sudo chown user:group file.txt (Changes owner to user and group to group for file.txt.)
+
+60. chmod: Changes file permissions.
+chmod 755 script.sh (Gives read, write, execute to owner; read, execute to group and others.)
+chmod +x script.sh (Makes script.sh executable.)
+
+61. umask: Sets the default file creation permissions.
+umask (Outputs the current umask value, e.g., 0022.)
+
+62. ln: Creates links between files.
+ln -s /path/to/original /path/to/symlink (Creates a symbolic link.)
+ln /path/to/original /path/to/hardlink (Creates a hard link.)
+
+63. find -exec: Executes commands on found files.
+find . -name "*.txt" -exec rm {} \; (Finds all .txt files and deletes them.)
+
+64. sort: Sorts lines of text files.
+sort names.txt (Sorts lines in names.txt alphabetically.)
+cat numbers.txt | sort -n (Sorts numbers numerically.)
+
+65. uniq: Reports or omits repeated lines.
+sort names.txt | uniq (Removes duplicate lines after sorting names.txt.)
+
+66. cut: Removes sections from each line of files.
+cut -d':' -f1 /etc/passwd (Extracts the first field (username) from /etc/passwd using : as delimiter.)
+
+67. paste: Merges lines of files.
+paste file1.txt file2.txt (Merges file1.txt and file2.txt line by line, separated by a tab.)
+
+68. join: Joins lines of two files on a common field.
+join file1.csv file2.csv (Joins two CSV files based on a common field.)
+
+69. diff: Compares two files line by line.
+diff file1.txt file2.txt (Shows the differences between file1.txt and file2.txt.)
+
+70. patch: Applies a diff file to an original.
+patch original_file.txt < diff_file.patch (Applies changes defined in diff_file.patch to original_file.txt.)
+
+71. sed: Stream editor for filtering and transforming text.
+sed 's/old_word/new_word/g' file.txt (Replaces all occurrences of old_word with new_word in file.txt and prints to stdout.)
+sed -i 's/old_word/new_word/g' file.txt (Replaces in-place.)
+
+72. awk: A powerful text processing language.
+awk '{print $1, $3}' myfile.txt (Prints the first and third fields of each line in myfile.txt.)
+cat /etc/passwd | awk -F':' '{print $1}' (Prints usernames from /etc/passwd.)
+
+73. tee: Reads from standard input and writes to standard output and files.
+ls -l | tee output.txt (Prints ls -l output to the screen and also saves it to output.txt.)
+
+74. xargs: Builds and executes command lines from standard input.
+find . -name "*.bak" | xargs rm (Finds all .bak files and removes them efficiently.)
+
+75. screen: Allows you to use multiple shell sessions within a single terminal window.
+screen (Starts a new screen session.)
+screen -r (Resumes a detached screen session.)
+
+76. tmux: A terminal multiplexer (modern alternative to screen).
+tmux (Starts a new tmux session.)
+tmux attach (Attaches to the last session.)
+
+77. jobs: Lists active jobs in the current shell.
+jobs (Shows background jobs.)
+
+78. bg: Resumes a suspended job in the background.
+bg %1 (Puts job number 1 in the background.)
+
+79. fg: Brings a suspended or background job to the foreground.
+fg %1 (Brings job number 1 to the foreground.)
+
+80. nice: Runs a command with modified scheduling priority.
+nice -n 10 mycommand (Runs mycommand with a lower priority.)
+
+81. renice: Changes the priority of a running process.
+renice 19 -p 12345 (Changes the priority of process ID 12345 to the lowest.)
+
+82. cron (crontab): Schedules commands to run periodically.
+crontab -e (Edits the user's crontab file.)
+* * * * * /path/to/script.sh (Example: Runs script.sh every minute.)
+
+83. at: Schedules commands to run at a specific time.
+echo "ls -l > /tmp/ls.txt" | at 10:00 tomorrow (Runs ls -l and redirects output to a file tomorrow at 10:00 AM.)
+
+84. dig: DNS lookup utility.
+dig google.com (Performs a DNS query for https://www.google.com/url?sa=E&source=gmail&q=google.com.)
+
+85. nslookup: Query Internet domain name servers (deprecated, use dig).
+nslookup google.com (Queries DNS for https://www.google.com/url?sa=E&source=gmail&q=google.com.)
+
+86. route: Shows/manipulates the IP routing table (deprecated, use ip route).
+route -n (Shows the kernel IP routing table.)
+
+87. traceroute: Traces the route an IP packet takes to a host.
+traceroute google.com (Shows the network path to https://www.google.com/url?sa=E&source=gmail&q=google.com.)
+
+88. iptables: Administration tool for IPv4 packet filtering and NAT.
+sudo iptables -L -n -v (Lists all current iptables rules.)
+
+89. ufw: Uncomplicated Firewall (front-end for iptables).
+sudo ufw enable (Enables the UFW firewall.)
+sudo ufw allow ssh (Allows SSH traffic through the firewall.)
+
+90. poweroff / halt / shutdown: Shuts down the system.
+sudo poweroff (Powers off the system immediately.)
+sudo shutdown -h now (Shuts down immediately.)
+sudo shutdown -r +5 "System update" (Reboots in 5 minutes with a message.)
+
+91. reboot: Reboots the system.
+sudo reboot (Reboots the system immediately.)
+
+92. dmesg: Prints the kernel ring buffer messages.
+dmesg | less (Shows kernel messages, useful for debugging hardware issues.)
+
+93. journalctl: Query the systemd journal.
+sudo journalctl -xe (Displays recent journal entries, including error messages.)
+
+94. uname: Prints system information.
+uname -a (Outputs all system information, including kernel name, hostname, kernel version, etc.)
+
+95. lsb_release: Prints distribution-specific information.
+lsb_release -a (Outputs information like Distributor ID, Description, Release, Codename.)
+
+96. df -i: Displays inode usage information.
+df -i (Shows inode usage, useful when disk space is available but no more files can be created.)
+
+97. cut: Extract sections from lines of files.
+cut -d',' -f1,3 data.csv (Extracts the first and third columns from a CSV file, using comma as delimiter.)
+
+98. sed -n p: Print specific lines.
+sed -n '5p' file.txt (Prints only the 5th line of file.txt.)
+sed -n '5,10p' file.txt (Prints lines from 5 to 10 of file.txt.)
+
+99. w (what is running): Show who is logged on and what they are doing.
+w (Displays current users and their processes.)
+
+100. free -m: Display memory usage in megabytes.
+free -m (Shows RAM and swap usage in megabytes.)
